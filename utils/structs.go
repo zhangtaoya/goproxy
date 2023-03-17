@@ -238,6 +238,7 @@ type HTTPRequest struct {
 }
 
 func NewHTTPRequest(inConn *net.Conn, bufSize int, isBasicAuth bool, basicAuth *BasicAuth) (req HTTPRequest, err error) {
+	log.Printf("NewHTTPRequest")
 	buf := make([]byte, bufSize)
 	len := 0
 	req = HTTPRequest{
