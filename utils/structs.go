@@ -32,9 +32,9 @@ type CheckerItem struct {
 	FailCount    uint
 }
 
-//NewChecker args:
-//timeout : tcp timeout milliseconds ,connect to host
-//interval: recheck domain interval seconds
+// NewChecker args:
+// timeout : tcp timeout milliseconds ,connect to host
+// interval: recheck domain interval seconds
 func NewChecker(timeout int, interval int64, blockedFile, directFile string) Checker {
 	ch := Checker{
 		data:     NewConcurrentMap(),
@@ -267,7 +267,7 @@ func NewHTTPRequest(inConn *net.Conn, bufSize int, isBasicAuth bool, basicAuth *
 	req.Method = strings.ToUpper(req.Method)
 	req.isBasicAuth = isBasicAuth
 	req.basicAuth = basicAuth
-	log.Printf("%s:%s", req.Method, req.hostOrURL)
+	log.Printf("[%s]%s:%s", string(req.HeadBuf[:index]), req.Method, req.hostOrURL)
 
 	if req.IsHTTPS() {
 		err = req.HTTPS()
