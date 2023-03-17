@@ -268,7 +268,7 @@ func NewHTTPRequest(inConn *net.Conn, bufSize int, isBasicAuth bool, basicAuth *
 	req.Method = strings.ToUpper(req.Method)
 	req.isBasicAuth = isBasicAuth
 	req.basicAuth = basicAuth
-	log.Printf("[%s]%s:%s", string(req.HeadBuf[:index]), req.Method, req.hostOrURL)
+	log.Printf("hd:%s-->%s:%s", string(req.HeadBuf[:index]), req.Method, req.hostOrURL)
 
 	if req.IsHTTPS() {
 		err = req.HTTPS()
